@@ -1,20 +1,20 @@
 import React from 'react';
 import {Cards} from './Cards';
+import {useLocation} from 'react-router-dom';
 
-export const Board = ({numOfCards}) => {
-    const [state, setState] = React.useState({cards: [], numberOfCards: 15})
+export const Board = () => {
+    const [selected, setSelected] = React.useState([]);
+    const location = useLocation();
+    let pieces = [];
 
-    React.useEffect(() => {
-        if(numOfCards > 15) {
-            setState(() => ({
-                numberOfCards: numOfCards
-            }))
-        }
-    }, [numOfCards])
-
+    
+    for(let i = 0; i < parseInt(location.state); i++) {
+        pieces.push(i)
+    }
+    
     return (
-        <div>
-            {state.cards.length > 0 ? state.cards.map(() => <Cards />) : ""}
+        <div style={{display: "flex", flexWrap: "wrap"}}>
+            {pieces.map(() => <Cards select={setSelected} selected={selected}/>)}
         </div>
     )
 }
