@@ -5,7 +5,7 @@ import {Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <div>
+    <div className="main">
       <Switch>
         <Route exact={true} path="/" component={StartingScreen}/>
         <Route exact={true} path="/Board" component={Board}/>

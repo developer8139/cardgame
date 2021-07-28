@@ -12,9 +12,11 @@ export const Board = () => {
         pieces.push(i)
     }
     
+
+    console.log(selected)
     return (
         <div style={{display: "flex", flexWrap: "wrap"}}>
-            {pieces.map(() => <Cards select={setSelected} selected={selected}/>)}
+            {pieces.map(() => <Cards select={setSelected} selected={selected} />)}
         </div>
     )
 }
